@@ -19,5 +19,14 @@ pipeline {
                 }
             }
         }
+        stage('Docker Build Image') {
+            steps {
+                dir('event-manager-backend') {
+          
+                    sh 'docker build -t event-manager-api:latest .'
+                }
+            }
+        }
     }
+
 }

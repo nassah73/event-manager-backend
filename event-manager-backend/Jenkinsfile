@@ -5,10 +5,18 @@ pipeline {
         } 
     }
 
+    tools {
+        
+        maven 'maven3' 
+    }
+
     stages {
         stage('Maven Build & Test') {
             steps {
-                sh 'mvn clean package'
+           
+                dir('event-manager-backend') {
+                    sh 'mvn clean package'
+                }
             }
         }
     }
